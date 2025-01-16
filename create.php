@@ -18,10 +18,16 @@ if(isset($_POST['submit'])){
     $stmt->bindParam(':residential_status',$residential_status);
     if($stmt->execute()){
         $_SESSION['message'] ="created successfully";
+        $_SESSION['alert-class'] = "success";
         header('Location:index.php');
+        exit(0);
     }
     else{
-        echo "<script>alert('unable to register')</script>";
+        $_SESSION['message'] = "Failed to create record!";
+        $_SESSION['alert-class'] = "danger";
+        header("Location: index.php");
+        exit(0);
+        
     }
 }
 ?>
