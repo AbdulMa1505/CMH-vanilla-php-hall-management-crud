@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
     $stmt->bindParam(':residential_status',$residential_status);
     if($stmt->execute()){
         $_SESSION['message'] ="created successfully";
-        header('Location:create.php');
+        header('Location:index.php');
     }
     else{
         echo "<script>alert('unable to register')</script>";
